@@ -11,17 +11,20 @@
         h=u.getElementsByTagName('script')[0];
         h.parentNode.insertBefore(s,h);
     })(window,document);
-  </script>
-    <script>
-window._pcq = window._pcq || [];
+     
+     window._pcq = window._pcq || [];
+
 _pcq.push(['subscriptionSuccessCallback',callbackFunctionOnSuccessfulSubscription]); //registers callback function to be called when user gets successfully subscribed
+
 function callbackFunctionOnSuccessfulSubscription() {
- window.location= 'https://google.com'
+
+window.location= 'https://www.pushcrew.com'
+
 }
 
-   </script>
-
-      <button onclick="_pcq.push(['triggerOptIn']);">
+  </script>
+    
+<button onclick="_pcq.push(['triggerOptIn']);">
 GET NOTIFICATIONS
 </button>
   </head>
