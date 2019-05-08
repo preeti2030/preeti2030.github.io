@@ -16,11 +16,13 @@
  <script type="text/javascript">
         // select the target node
         var target = document.querySelector('body');
+
         // create an observer instance
         var observer = new MutationObserver(function(mutations) {
             mutations.forEach(function(mutation) {
                 if (mutation.addedNodes && mutation.addedNodes.length) {
                     var node = mutation.addedNodes[0];
+
                     if (node.classList && node.classList.value === 'pushcrew-chrome-style-notification pushcrew-chrome-style-notification-safari') {
                         if (document.getElementsByClassName('pushcrew-notification-message-safari')[0]) {
                             var closeBtn = document.getElementsByClassName('pushcrew-chrome-style-notification-btn')[0];
@@ -36,8 +38,10 @@
                 }
             });
         });
+
         // configuration of the observer:
         var config = { attributes: true, childList: true, characterData: true }
+
         // pass in the target node, as well as the observer options
         observer.observe(target, config);
 </script>
