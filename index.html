@@ -13,39 +13,11 @@
         h.parentNode.insertBefore(s,h);
     })(window,document);
   </script>
- <script type="text/javascript">
-        // select the target node
-        var target = document.querySelector('body');
-
-        // create an observer instance
-        var observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                if (mutation.addedNodes && mutation.addedNodes.length) {
-                    var node = mutation.addedNodes[0];
-
-                    if (node.classList && node.classList.value === 'pushcrew-chrome-style-notification pushcrew-chrome-style-notification-safari') {
-                        if (document.getElementsByClassName('pushcrew-notification-message-safari')[0]) {
-                            var closeBtn = document.getElementsByClassName('pushcrew-chrome-style-notification-btn')[0];
-                            var allowBtn = document.getElementsByClassName('pushcrew-chrome-style-notification-btn')[1];
-                            closeBtn.innerHTML = 'Plus tard';
-                            allowBtn.innerHTML = 'Autoriser';
-                            document.getElementsByClassName('pushcrew-notification-title-safari')[0].innerHTML = 'ARVALIS - Recevez les notifications de votre région en temps réel.';
-                            document.getElementsByClassName('pushcrew-notification-message-safari')[0].innerHTML = 'En cliquant sur Autoriser, vous consentez à la collecte de vos données de localisation et de navigation par ARVALIS via PushCrew, dans l’unique but de vous de transmettre des notifications. Ces informations seront conservées jusqu’à votre désinscription. Vous pouvez révoquer à tout moment votre consentement en cliquant sur l’icône "Paramètres" de chaque notification.';
-                            //console.log('Done');
-                            observer.disconnect();
-                        }
-                    }
-                }
-            });
-        });
-
-        // configuration of the observer:
-        var config = { attributes: true, childList: true, characterData: true }
-
-        // pass in the target node, as well as the observer options
-        observer.observe(target, config);
-</script>
-
+ 
+</head>
+    <a onclick="_pcq.push(['triggerOptIn']);">
+GET NOTIFICATIONS
+</a>
 
 
     Example for custom script
