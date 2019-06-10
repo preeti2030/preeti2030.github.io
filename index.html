@@ -16,18 +16,12 @@
  
 </head>
   <body>
-    <a href onclick="_pcq.push(['triggerOptIn']);">
-GET NOTIFICATIONS
-</a>
+    <script>
 
-<button type="button">Click Me!</button>
-    Example for custom script
-    
-    <div style="background-color:lightblue">
-  <h3>This is a Test</h3>
-  <p>TC.</p>
-      <button type="button">Test TC!</button>
-</div>
+ window._pcq = window._pcq || [];
 
+window._pcq.push(['triggerOptIn']); //Calls triggerOptIn with default text and default segment(global)\
+
+</script>
 </body>
 </html>
