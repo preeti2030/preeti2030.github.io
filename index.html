@@ -2,48 +2,60 @@
   
     <head>
      
-    <!-- Start VWO Async Smartcode -->
-<script type='text/javascript'>
-window._vwo_code = window._vwo_code || (function(){
-var account_id=339904,
-settings_tolerance=2000,
-library_tolerance=2500,
-use_existing_jquery=false,
-is_spa=1,
-hide_element='body',
-
-/* DO NOT EDIT BELOW THIS LINE */
-f=false,d=document,code={use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){
-settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b=hide_element?hide_element+'{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}':'',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&f='+(+is_spa)+'&r='+Math.random());return settings_timer; }};window._vwo_settings_timer = code.init(); return code; }());
-<!-- End VWO Async Smartcode -->
+    <script type="text/javascript">
+    (function(p,u,s,h){
+        p._pcq=p._pcq||[];
+        p._pcq.push(['_currentTime',Date.now()]);
+        s=u.createElement('script');
+        s.type='text/javascript';
+        s.async=true;
+        s.crossOrigin = 'anonymous';
+        s.src='https://cdn.pushcrew.com/js/4b1e2f9c5c545165201a357fcd4a0a0f.js';
+        h=u.getElementsByTagName('script')[0];
+        h.parentNode.insertBefore(s,h);
+    })(window,document);
   </script>
  
 </head>
   <body>
-    <script>
+    <button 
+            ="Get More News Like This" id ='news' onclick="get_notification()">
 
-window._pcq = window._pcq || [];
+<svg class="bell-icon-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="28" viewBox="0 0 22 28" fill="currentColor">
+<path d="M11.0006 27.8252C9.20627 27.8252 7.75077 26.371 7.75077 24.5753H14.2499C14.2503 26.371 12.7949 27.8252 11.0006 27.8252ZM21.9823 21.3167C21.9823 22.5183 21.0076 22.5973 19.8068 22.5973H2.19411C0.992777 22.5973 0.0197754 22.5182 0.0197754 21.3165V21.1095C0.0197754 20.2453 0.527275 19.5053 1.25644 19.1543L1.94678 13.1955C1.94678 8.83315 5.03177 5.19215 9.13877 4.33315V2.01982C9.13877 0.991488 9.97261 0.157654 11.0014 0.157654C12.0298 0.157654 12.8636 0.991488 12.8636 2.01982V4.33332C16.9706 5.19215 20.0556 8.83282 20.0556 13.1957L20.7459 19.1553C21.4751 19.5068 21.9823 20.2455 21.9823 21.1097V21.3167Z"/>
 
-_pcq.push(['APIReady', callbackOnAPIReady]); //will execute callback function when VWO Engage API is ready
+</svg>
 
-function callbackOnAPIReady() {
-    _pcq.push(['removeSubscriberFromSegment', '
-test_segment', callbackForRemoveFromSegment]);  
-}
+<div class="message">Get More News Like This</div>
 
-function callbackForRemoveFromSegment(response) {
-    if(response === -1) {
-        console.log('User is not a subscriber or has blocked notifications');
-    }
-  
-    if(response === false) {
-        console.log('Segment name provided is not valid. Maximum length of segment name can be 30 chars and it can only contain alphanumeric characters, underscore and dash.');
-    }
-  
-    if(response === true) {
-        console.log('User got removed from the segment successfully. Now you may run any code you wish to execute after user gets removed from segment successfully');
-    }
-}
-</script>
+<script>
+
+	var checkStatus = localStorage.getItem('wingify_push_subscription_status');
+	
+	_pcq.push(['subscriptionSuccessCallback',callbackFunctionOnSuccessfulSubscription]);
+
+	console.log(checkStatus);
+
+	function callbackFunctionOnSuccessfulSubscription(subscriberId, values) {
+		document.getElementById("news").style.display = "none";
+	}
+	
+	if (checkStatus== "subscribed") {
+		document.getElementById("news").style.display = "none";
+	}	
+
+	function get_notification() {
+		if (checkStatus== "subscribed") {
+			document.getElementById("news").style.display = "none";
+		}
+
+		if (Notification.permission== "denied"){
+			window.open("https://help.vwo.com/hc/en-us/articles/360007700494-How-to-unblock-notifications-from-a-website-that-you-once-blocked-", '_blank', 'width=700,height=500,left=200,top=100');			
+		}
+		
+		_pcq.push(['triggerOptIn']);
+	}
+
+</script>â€‹
 </body>
 </html>
