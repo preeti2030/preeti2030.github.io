@@ -18,7 +18,7 @@
  
 </head>
   <body>
- <button class="bell-icon-container bell-icon-notification-left" id ='bellIcon' onclick="bellIconClicked()"> Get news </button>
+ <button class="notification" id ='news' onclick="get_notification()"> Get news </button>
 
 <script>
 
@@ -29,16 +29,16 @@
 	console.log(checkStatus);
 
 	function callbackFunctionOnSuccessfulSubscription(subscriberId, values) {
-		document.getElementById("bellIcon").style.display = "none";
+		document.getElementById("news").style.display = "none";
 	}
 	
 	if (checkStatus== "subscribed") {
-		document.getElementById("bellIcon").style.display = "none";
+		document.getElementById("news").style.display = "none";
 	}	
 
-	function bellIconClicked() {
+	function get_notification() {
 		if (checkStatus== "subscribed") {
-			document.getElementById("bellIcon").style.display = "none";
+			document.getElementById("news").style.display = "none";
 		}
 
 		if (Notification.permission== "denied"){
